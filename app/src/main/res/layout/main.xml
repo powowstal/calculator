@@ -76,7 +76,7 @@
         android:textSize="44sp"
         android:layout_alignBottom="@+id/numberPicker_water"
         android:layout_alignParentLeft="true"
-        android:text="30,65" />
+        android:text="@string/_30_65" />
 
     <TextView
         android:id="@+id/textView_tariff_cold_water"

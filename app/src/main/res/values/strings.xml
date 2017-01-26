@@ -20,4 +20,5 @@
     <string name="water">Вода</string>
     <string name="tariff_to_hot_water">Тариф на горячую воду</string>
     <string name="tariff_to_cold_water">Тариф на холодную воду</string>
+    <string name="_30_65">30,65</string>
 </resources>
