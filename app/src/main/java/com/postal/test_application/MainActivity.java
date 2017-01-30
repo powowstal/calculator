@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.NumberPicker;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.postal.test_application.static_variable_data.Variables;
 
@@ -19,88 +20,33 @@ public class MainActivity extends AppCompatActivity {
 
     Variables v = new Variables();
     NumberPicker numberPicker;
+    TextView tv,tv1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
-//        String APP_PREFERENCES_LAST_TIME_LOAD = "LAST_TIME_LOAD";
-//        SharedPreferences.Editor editor =  null;
-//        editor.putLong(APP_PREFERENCES_LAST_TIME_LOAD, System.currentTimeMillis());
-//        editor.apply();
 
-
-//        String APP_PREFERENCES = "mysettings";
-//        SharedPreferences mSettings;
-//        mSettings = getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
-//        if (mSettings.contains(APP_PREFERENCES_LAST_TIME_LOAD)) {
-//            // Получаем число из настроек
-//            //Log.i("MyMsg", " value "+mSettings.getLong(APP_PREFERENCES_LAST_TIME_LOAD, 0));
-//        }
-
-
-//        String APP_PREFERENCES_COUNTER = "time";
-//        String APP_PREFERENCES_TIME_DATA_SET = "APP_PREFERENCES_TIME";
-//        SharedPreferences mSettings = null;
-//
-//        mSettings = getSharedPreferences(APP_PREFERENCES_TIME_DATA_SET, Context.MODE_PRIVATE);//context
-//        SharedPreferences.Editor editor = mSettings.edit();
-//        editor.putLong(APP_PREFERENCES_COUNTER, System.currentTimeMillis());
-//        editor.apply();
-//
-////        String APP_PREFERENCES_COUNTER = "time";
-////        String APP_PREFERENCES_TIME_DATA_SET = "APP_PREFERENCES_TIME";
-////        SharedPreferences mSettings = null;
-//        mSettings = getSharedPreferences(APP_PREFERENCES_TIME_DATA_SET, Context.MODE_PRIVATE);//context
-//        Long mCounter = mSettings.getLong(APP_PREFERENCES_COUNTER, 0);
-//        Log.i("MyMsg", " value "+mCounter.toString());
-//        Log.i("MyMsg", " value "+Calendar.getInstance().getTimeInMillis());
-
-//        SmartLocation.with(getApplicationContext()).location()
-//                .oneFix()
-//                .start(new OnLocationUpdatedListener() {
-//                    @Override
-//                    public void onLocationUpdated(Location location) {
-//
-//                        Log.i("MyMsg", "Location changed: Lat: "
-//                                + location.getLatitude() + " Lng: "
-//                                + location.getLongitude());
-//                    }
-//
-//                     });
-
-
-//        MyLocation.LocationResult locationResult = new MyLocation.LocationResult(){
-//            @Override
-//            public void gotLocation(Location location){
-//                Log.i("MyMsg", "CHANG!!");
-//                if (location != null)
-//                    Log.i("MyMsg", "Location changed: Lat: "
-//                            + location.getLatitude() + " Lng: "
-//                            + location.getLongitude()
-//                            +"      time "+ new SimpleDateFormat("yyyy_MM_dd_HH-mm-ss")
-//                            .format(location.getTime()));
-//                if (location == null)Log.i("MyMsg", "KU KU ");
-//            }
-//        };
-//        MyLocation myLocation = new MyLocation();
-//        myLocation.getLocation(this, locationResult);
-
-//        Thread dataCollection = new Thread("AlarmReceiver") {
-//            @Override
-//            public void run() {
-//        LocationGetter a = new LocationGetter(getApplicationContext());
-//        Coordinates b = a.getLocation(1000*60*2,1000*60);
-//        Log.i("MyMsg", "latitude "+b.latitude);
-//        Log.i("MyMsg", "longitude "+b.longitude);
-//            }
-//        };
-//
-//        dataCollection.start();
+        tv = (TextView) findViewById(R.id.text_view_hot_price);
+        tv1 = (TextView) findViewById(R.id.text_view_tariff_hot);
 
         numberPicker = (NumberPicker) findViewById(R.id.numberPicker_water);
         numberPicker.setMaxValue(100);
         numberPicker.setMinValue(0);
+
+        numberPicker.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
+            @Override
+            public void onValueChange(NumberPicker numberPicker, int i, int i2) {
+
+
+                Toast toast = Toast.makeText(getApplicationContext(),
+                        tv1.getText().toString()+ " Choose "+i2, Toast.LENGTH_SHORT);
+                toast.show();
+                Double val = Double.parseDouble(((String) tv1.getText()).replace(",",".")) * i2;
+                tv.setText(val.toString());
+
+            }
+        });
     }
 
     public void onClick(View v) {
