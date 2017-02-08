@@ -19,7 +19,7 @@
         android:textSize="24sp" />
 
     <TextView
-        android:id="@+id/textView_info_hot_water"
+        android:id="@+id/tv_info_hot_water"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/TARIFF_INFO"
@@ -28,11 +28,11 @@
         android:layout_centerHorizontal="true" />
 
     <TextView
-        android:id="@+id/textView_info_cold_water"
+        android:id="@+id/tv_info_cold_water"
         android:text="@string/TARIFF_INFO"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView_info_hot_water"
+        android:layout_below="@+id/tv_info_hot_water"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"/>
 
@@ -41,70 +41,70 @@
         android:text="@string/CHECK_BOX"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView_info_cold_water"
+        android:layout_below="@+id/tv_info_cold_water"
         android:layout_alignParentLeft="true"
         android:layout_marginTop="20dp" />
 
     <TextView
-        android:id="@+id/text_view_tariff_hot"
+        android:id="@+id/tv_tariff_hot"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="40sp"
-        android:layout_alignTop="@+id/numberPicker_water"
+        android:layout_alignTop="@+id/np_water"
         android:layout_alignParentLeft="true"
         android:text="30,66" />
 
     <TextView
-        android:id="@+id/text_view_hot_price"
+        android:id="@+id/tv_hot_price"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="40sp"
-        android:layout_alignTop="@+id/numberPicker_water"
-        android:layout_toLeftOf="@id/numberPicker_water"
+        android:layout_alignTop="@+id/np_water"
+        android:layout_toLeftOf="@id/np_water"
         android:layout_marginRight="20dp"
         android:text="0" />
 
     <TextView
-        android:id="@+id/textView_tariff_hot_water"
+        android:id="@+id/tv_tariff_hot_water"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="16sp"
         android:textIsSelectable="false"
-        android:layout_below="@+id/text_view_tariff_hot"
+        android:layout_below="@+id/tv_tariff_hot"
         android:text="@string/tariff_to_hot_water"
-        android:layout_alignLeft="@+id/text_view_tariff_hot"
-        android:layout_alignRight="@+id/text_view_tariff_hot"
+        android:layout_alignLeft="@+id/tv_tariff_hot"
+        android:layout_alignRight="@+id/tv_tariff_hot"
         tools:ignore="RtlHardcoded" />
     <!--розмещяем элемент textView_tariff_hot_water по ширине text_view_tariff_hot-->
     <!--android:layout_alignLeft="@+id/text_view_tariff_hot"-->
     <!--android:layout_alignRight="@+id/text_view_tariff_hot"-->
 
     <TextView
-        android:id="@+id/text_view_tariff_cold"
+        android:id="@+id/tv_tariff_cold"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="40sp"
-        android:layout_alignBottom="@+id/numberPicker_water"
+        android:layout_alignBottom="@+id/np_water"
         android:layout_alignParentLeft="true"
         android:text="@string/_30_65" />
 
     <TextView
-        android:id="@+id/text_view_cold_price"
+        android:id="@+id/tv_cold_price"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="40sp"
-        android:layout_alignBottom="@+id/numberPicker_water"
-        android:layout_toLeftOf="@id/numberPicker_water"
+        android:layout_alignBottom="@+id/np_water"
+        android:layout_toLeftOf="@id/np_water"
         android:layout_marginRight="20dp"
         android:text="0" />
 
     <TextView
-        android:id="@+id/textView_tariff_cold_water"
+        android:id="@+id/tv_tariff_cold_water"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/text_view_tariff_cold"
-        android:layout_alignLeft="@+id/text_view_tariff_cold"
-        android:layout_alignRight="@+id/text_view_tariff_cold"
+        android:layout_below="@+id/tv_tariff_cold"
+        android:layout_alignLeft="@+id/tv_tariff_cold"
+        android:layout_alignRight="@+id/tv_tariff_cold"
         android:textSize="16sp"
         android:textIsSelectable="false"
         android:layout_alignParentLeft="true"
@@ -112,7 +112,7 @@
         tools:ignore="RtlHardcoded" />
 
     <NumberPicker
-        android:id="@+id/numberPicker_water"
+        android:id="@+id/np_water"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -133,11 +133,11 @@
         android:layout_marginBottom="20dp" />
 
     <TextView
-        android:id="@+id/text_view_sum"
+        android:id="@+id/tv_sum"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView_tariff_cold_water"
-        android:layout_toRightOf="@+id/textView_tariff_cold_water"
+        android:layout_below="@+id/tv_tariff_cold_water"
+        android:layout_toRightOf="@+id/tv_tariff_cold_water"
         android:layout_centerHorizontal="true"
         android:text="Summa"
         android:textSize="40dp"/>

@@ -16,34 +16,39 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
+
 public class MainActivity extends AppCompatActivity {
 
     Variables v = new Variables();
-    NumberPicker numberPicker;
-    TextView tv,tv1;
+    NumberPicker np_water;
+    TextView tv_hot_price, tv_tariff_hot, tv_info_hot_water, tv_info_cold_water;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
 
-        tv = (TextView) findViewById(R.id.text_view_hot_price);
-        tv1 = (TextView) findViewById(R.id.text_view_tariff_hot);
+        tv_info_hot_water = (TextView) findViewById(R.id.tv_info_hot_water);
+        tv_info_cold_water = (TextView) findViewById(R.id.tv_info_cold_water);
 
-        numberPicker = (NumberPicker) findViewById(R.id.numberPicker_water);
-        numberPicker.setMaxValue(100);
-        numberPicker.setMinValue(0);
+        tv_tariff_hot = (TextView) findViewById(R.id.tv_tariff_hot);
+        tv_hot_price = (TextView) findViewById(R.id.tv_hot_price);
 
-        numberPicker.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
+        np_water = (NumberPicker) findViewById(R.id.np_water);
+        np_water.setMaxValue(100);
+        np_water.setMinValue(0);
+
+        np_water.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {//NP смена количества кубов
             @Override
             public void onValueChange(NumberPicker numberPicker, int i, int i2) {
-
-
-                Toast toast = Toast.makeText(getApplicationContext(),
-                        tv1.getText().toString()+ " Choose "+i2, Toast.LENGTH_SHORT);
-                toast.show();
-                Double val = Double.parseDouble(((String) tv1.getText()).replace(",",".")) * i2;
-                tv.setText(val.toString());
+//                Toast toast = Toast.makeText(getApplicationContext(),
+//                        tv_tariff_hot.getText().toString()+ " Choose "+i2, Toast.LENGTH_SHORT);
+//                toast.show();
+                Double val = new BigDecimal(83.1*3).setScale(2, RoundingMode.UP).doubleValue();//Double.parseDouble(((String) tv_tariff_hot.getText()).replace(",",".")) * i2;
+                tv_hot_price.setText(val.toString()); Log.i("MyMsg","val = "+val);
 
             }
         });
@@ -92,10 +97,8 @@ public class MainActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(Object o) {
             super.onPostExecute(o);
-            TextView f = (TextView) findViewById(R.id.textView_info_hot_water);
-            f.setText(info);
-            f = (TextView) findViewById(R.id.text_view_tariff_hot);
-            f.setText(tariff);
+            tv_info_hot_water.setText(info);
+            tv_tariff_hot.setText(tariff);
 
         }
     }
